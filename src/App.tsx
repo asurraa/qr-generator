@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Input, Typography } from "antd";
+import { Button, Input, Typography } from "antd";
 import styled from "styled-components";
 import QRcode from "qrcode.react";
 
@@ -14,6 +14,32 @@ const Spacer = styled.div`
 `;
 const App = () => {
   const [value, setValue] = useState<string>("");
+
+  const onImageDownload = () => {
+    const svg = document.getElementById("QRCode");
+
+    // @ts-ignore
+    const svgData = new XMLSerializer().serializeToString(svg);
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx?.drawImage(img, 0, 0);
+      const pngFile = canvas.toDataURL("image/png");
+      const downloadLink = document.createElement("a");
+      downloadLink.download = "QRCode";
+      downloadLink.href = `${pngFile}`;
+      downloadLink.click();
+    };
+    img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
+    // @ts-ignore
+    document.location(`data:image/svg+xml;base64,${btoa(svgData)}`);
+    // console.log(`data:image/svg+xml;base64,${btoa(svgData)}`);
+  };
   return (
     <Fragment>
       <div
@@ -37,7 +63,11 @@ const App = () => {
           />
           <Spacer />
           <Flexbox>
-            <QRcode value={value} autoSave={"true"} />
+            <QRcode id="QRCode" value={value} autoSave={"true"} />
+          </Flexbox>
+          <Spacer />
+          <Flexbox>
+            <Button onClick={onImageDownload}>Download</Button>
           </Flexbox>
         </div>
       </div>
