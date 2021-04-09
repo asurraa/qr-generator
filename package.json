@@ -10,7 +10,8 @@
     "build:release": "vite build --mode release",
     "serve": "vite preview",
     "predeploy": "yarn build:release",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "build:react": "react-scripts build"
   },
   "dependencies": {
     "@types/qrcode.react": "^1.0.1",
@@ -22,6 +23,7 @@
     "qrcode.react": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
@@ -37,5 +39,17 @@
     "vite-aliases": "^0.5.1",
     "vite-plugin-babel-import": "^2.0.2",
     "vite-plugin-imp": "^2.0.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
