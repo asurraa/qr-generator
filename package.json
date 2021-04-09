@@ -11,7 +11,8 @@
     "serve": "vite preview",
     "predeploy": "yarn build:release",
     "deploy": "gh-pages -d dist",
-    "build:react": "react-scripts build"
+    "build:react": "react-scripts build",
+    "start:react": "react-scripts start"
   },
   "dependencies": {
     "@types/qrcode.react": "^1.0.1",
@@ -51,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "volta": {
+    "node": "14.16.1",
+    "yarn": "1.22.10"
   }
 }
