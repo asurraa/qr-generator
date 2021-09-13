@@ -1,1 +1,1 @@
-# simple-qr-generator
+# Small & Free QR-CODE generator from @asurraa
