@@ -12,7 +12,7 @@ const themeVariables = lessToJS(
 );
 
 export default defineConfig({
-  base: "/",
+  base: "./",
   plugins: [
     reactRefresh(),
     vitePluginImp({
