@@ -30,7 +30,7 @@ const App = () => {
       ctx.drawImage(img, 0, 0);
       const pngFile = canvas.toDataURL("image/png");
       const downloadLink = document.createElement("a");
-      downloadLink.download = "QRCode";
+      downloadLink.download = "AsurRaa-QRCode";
       downloadLink.href = `${pngFile}`;
       downloadLink.click();
     };
