@@ -37,40 +37,64 @@ const App = () => {
     img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
   };
 
-  return (
-    <Fragment>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <div>
-          <Flexbox>
-            <Typography.Text strong>QRCode Generator</Typography.Text>
-          </Flexbox>
-          <Spacer />
+  const qrCodeContainer = (
+    <div style={{}}>
+      <div>
+        <Flexbox>
+          <Typography.Text code strong>
+            <a href="https://github.com/asurraa/qr-generator">
+              QRCode Generator
+            </a>
+          </Typography.Text>
+        </Flexbox>
+        <Spacer />
+        <Flexbox>
           <Input
             placeholder={"Enter Value"}
             style={{ width: 300 }}
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <Spacer />
-          <Flexbox>
-            <QRCode
-              // @ts-ignore
-              id="QRCode"
-              value={value}
-              autoSave={"true"}
-            />
-          </Flexbox>
-          <Spacer />
-          <Flexbox>
-            <Button onClick={onImageDownload}>Download</Button>
-          </Flexbox>
+        </Flexbox>
+        <Spacer />
+        <Flexbox>
+          <QRCode
+            // @ts-ignore
+            id="QRCode"
+            value={value}
+            autoSave={"true"}
+          />
+        </Flexbox>
+        <Spacer />
+        <Flexbox>
+          <Button onClick={onImageDownload}>Download</Button>
+        </Flexbox>
+      </div>
+    </div>
+  );
+
+  return (
+    <Fragment>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+          justifyContent: "space-between",
+        }}
+      >
+        <div></div>
+        <div>{qrCodeContainer}</div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: 20,
+          }}
+        >
+          <b>
+            Powered by <a href="https://asurraa.com">AsurRaa</a>
+          </b>
         </div>
       </div>
     </Fragment>
