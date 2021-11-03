@@ -12,7 +12,7 @@ const themeVariables = lessToJS(
 );
 
 export default defineConfig({
-  base: "https://github.com/asurraa/qr-generator",
+  base: "./",
   plugins: [
     reactRefresh(),
     vitePluginImp({

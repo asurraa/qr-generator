@@ -1,8 +1,8 @@
 {
   "name": "qrcode-generator",
-  "author": "@lyhourchhen",
+  "author": "@asurraa",
   "version": "1.0.0",
-  "homepage": "/",
+  "homepage": "./",
   "license": "MIT",
   "scripts": {
     "dev": "vite --mode development",
